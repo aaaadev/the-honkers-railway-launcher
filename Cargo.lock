@@ -57,12 +57,12 @@ checksum = "5c6cb57a04249c6480766f7f7cef5467412af1490f8d1e243141daddada3264f"
 
 [[package]]
 name = "anime-game-core"
-version = "1.20.2"
-source = "git+https://github.com/an-anime-team/anime-game-core?tag=1.20.2#3f013bffed78ca9c22db1d8bb10d4ae8ef527c5c"
+version = "1.21.2"
+source = "git+https://github.com/an-anime-team/anime-game-core?tag=1.21.2#7944efab8516e581367963e82674060a33b9d72e"
 dependencies = [
  "anyhow",
  "bzip2",
- "cached",
+ "cached 0.52.0",
  "dns-lookup",
  "flate2",
  "fs_extra",
@@ -82,12 +82,12 @@ dependencies = [
 
 [[package]]
 name = "anime-launcher-sdk"
-version = "1.15.4"
-source = "git+https://github.com/an-anime-team/anime-launcher-sdk?tag=1.15.4#eebd048fb05034959fd06e499fcdfaebbcce1d6c"
+version = "1.16.3"
+source = "git+https://github.com/aaaadev/anime-launcher-sdk#355781fe3c03b097f3e9402ec0d7e6d2a57439d6"
 dependencies = [
  "anime-game-core",
  "anyhow",
- "cached",
+ "cached 0.52.0",
  "discord-rich-presence",
  "enum-ordinalize",
  "lazy_static",
@@ -468,7 +468,22 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "0feb64151eed3da6107fddd2d717a6ca4b9dbd74e43784c55c841d1abfe5a295"
 dependencies = [
  "ahash",
- "cached_proc_macro",
+ "cached_proc_macro 0.21.0",
+ "cached_proc_macro_types",
+ "hashbrown",
+ "instant",
+ "once_cell",
+ "thiserror",
+]
+
+[[package]]
+name = "cached"
+version = "0.52.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a8466736fe5dbcaf8b8ee24f9bbefe43c884dc3e9ff7178da70f55bffca1133c"
+dependencies = [
+ "ahash",
+ "cached_proc_macro 0.22.0",
  "cached_proc_macro_types",
  "hashbrown",
  "instant",
@@ -481,6 +496,18 @@ name = "cached_proc_macro"
 version = "0.21.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "771aa57f3b17da6c8bcacb187bb9ec9bc81c8160e72342e67c329e0e1651a669"
+dependencies = [
+ "darling",
+ "proc-macro2",
+ "quote",
+ "syn",
+]
+
+[[package]]
+name = "cached_proc_macro"
+version = "0.22.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "575f32e012222055211b70f5b0601f951f84523410a0e65c81f2744a6042450d"
 dependencies = [
  "darling",
  "proc-macro2",
@@ -1475,12 +1502,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "home"
+version = "0.5.9"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e3d1354bf6b7235cb4a0576c2619fd4ed18183f689b12b006a0ee7329eeff9a5"
+dependencies = [
+ "windows-sys 0.52.0",
+]
+
+[[package]]
 name = "honkers-railway-launcher"
 version = "1.6.1"
 dependencies = [
  "anime-launcher-sdk",
  "anyhow",
- "cached",
+ "cached 0.51.4",
  "enum-ordinalize",
  "fluent-templates",
  "glib-build-tools",
@@ -1490,6 +1526,7 @@ dependencies = [
  "libadwaita",
  "md-5",
  "open",
+ "privilege",
  "relm4",
  "rfd",
  "serde_json",
@@ -2081,6 +2118,18 @@ name = "ppv-lite86"
 version = "0.2.17"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "5b40af805b3121feab8a3c29f04d8ad262fa8e0561883e7653e024ae4479e6de"
+
+[[package]]
+name = "privilege"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "765ec92721e112ffe07f5c06fb0654da0b708990888981d05cf12a7c9909df30"
+dependencies = [
+ "libc",
+ "security-framework-sys",
+ "which",
+ "windows-sys 0.48.0",
+]
 
 [[package]]
 name = "proc-macro-crate"
@@ -3082,6 +3131,18 @@ name = "whatadistro"
 version = "0.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "1c97ebad4f59809511083f2161587445631bff21bb78d9e046b9ca5b2d05d913"
+
+[[package]]
+name = "which"
+version = "4.4.2"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "87ba24419a2078cd2b0f2ede2691b6c66d8e47836da3b6db8265ebad47afbfc7"
+dependencies = [
+ "either",
+ "home",
+ "once_cell",
+ "rustix",
+]
 
 [[package]]
 name = "winapi"

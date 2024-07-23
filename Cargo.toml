@@ -9,6 +9,21 @@ license = "GPL-3.0"
 edition = "2021"
 build = "build.rs"
 
+[package.metadata.bundle]
+name = "The Honkers Railway Launcher"
+identifier = "moe.launcher.the-honkers-railway-launcher"
+icon = ["assets/images/icon.png"]
+version = "1.6.1"
+resources = []
+copyright = "Copyright (c) An anime team 2024. All rights reserved."
+category = "public.app-category.games"
+short_description = "The honkers railway launcher"
+long_description = """
+Too sleepy Zzz
+"""
+osx_frameworks = []
+osx_url_schemes = ["moe.launcher.the-honkers-railway-launcher"]
+
 [profile.release]
 strip = true
 lto = true
@@ -18,8 +33,7 @@ opt-level = "s"
 glib-build-tools = "0.19"
 
 [dependencies.anime-launcher-sdk]
-git = "https://github.com/an-anime-team/anime-launcher-sdk"
-tag = "1.15.4"
+git = "https://github.com/aaaadev/anime-launcher-sdk"
 features = ["all", "star-rail", "star-rail-patch"]
 
 # path = "../anime-launcher-sdk" # ! for dev purposes only
@@ -47,3 +61,5 @@ fluent-templates = "0.9"
 unic-langid = "0.9"
 
 human-panic = "2.0.0"
+
+privilege = "0.3"

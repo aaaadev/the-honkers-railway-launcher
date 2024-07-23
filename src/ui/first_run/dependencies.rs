@@ -11,6 +11,7 @@ pub struct DependenciesApp {
     show_arch: bool,
     show_debian: bool,
     show_fedora: bool,
+    show_macos: bool,
     show_list: bool
 }
 
@@ -112,6 +113,23 @@ impl SimpleAsyncComponent for DependenciesApp {
                         set_spacing: 16,
 
                         #[watch]
+                        set_visible: model.show_macos,
+
+                        gtk::Label {
+                            set_label: "macOS (Homebrew)"
+                        },
+
+                        gtk::Entry {
+                            set_text: "brew install git p7zip webp librsvg xdelta",
+                            set_editable: false
+                        }
+                    },
+
+                    gtk::Box {
+                        set_orientation: gtk::Orientation::Vertical,
+                        set_spacing: 16,
+
+                        #[watch]
                         set_visible: model.show_list,
 
                         adw::PreferencesGroup {
@@ -180,6 +198,8 @@ impl SimpleAsyncComponent for DependenciesApp {
                 Some(distro) => distro.is_similar("fedora"),
                 None => false
             },
+
+            show_macos: true,
 
             show_list: false
         };
